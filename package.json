@@ -17,7 +17,7 @@
     "lint:watch": "yarn lint -- --watch",
     "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --ui bdd --reporter spec --colors server --recursive",
     "test:watch": "yarn test -- --watch",
-    "test:coverage": "cross-env NODE_ENV=test ./node_modules/.bin/nyc yarn test",
+    "test:coverage": "cross-env NODE_ENV=test ./node_modules/.bin/nyc --reporter=text --all yarn test",
     "test:check-coverage": "yarn test:coverage && ./node_modules/.bin/nyc check-coverage",
     "report-coverage": "coveralls < ./coverage/lcov.info"
   },
