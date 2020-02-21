@@ -6,6 +6,21 @@ const app = require("../../index");
 
 chai.config.includeStack = true;
 
+describe("## Server", () => {
+  describe("loading express", () => {
+    it("responds to /", done => {
+      request(app)
+        .get("/")
+        .expect(200, done);
+    });
+    it("404 everything else", done => {
+      request(app)
+        .get("/foo/bar")
+        .expect(404, done);
+    });
+  });
+});
+
 describe("## Misc", () => {
   describe("# GET /api/health-check", () => {
     it("should return OK", done => {

@@ -202,5 +202,16 @@ describe("## TikTok APIs", () => {
         })
         .catch(done);
     });
+
+    it("should throw error", done => {
+      request(app)
+        .delete("/api/awemes/")
+        .expect(httpStatus.NOT_FOUND)
+        .then(res => {
+          expect(res.body.message).to.equal("Not Found");
+          done();
+        })
+        .catch(done);
+    });
   });
 });

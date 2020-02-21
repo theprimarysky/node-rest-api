@@ -52,6 +52,8 @@ if (config.env === "development") {
 // mount all routes on /api path
 app.use("/api", routes);
 
+app.get("/", (req, res) => res.sendStatus(200));
+
 // if error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {
   if (err instanceof expressValidation.ValidationError) {
